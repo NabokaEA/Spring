@@ -32,11 +32,7 @@ public class ProductListServlet extends HttpServlet{
         }
         resp.getWriter().println("</table>");
     }
-//<tr height="100">
-//<td valign="top">ячейка 1</td>
-//<td valign="bottom">ячейка 2</td>
-//<td valign="middle">ячейка 3</td>
-//</tr>
+
     @Override
     public void init() throws ServletException {
         productRepository=(ProductRepository) getServletContext().getAttribute("ProductRepository");
