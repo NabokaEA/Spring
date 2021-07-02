@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.geekbrains.persist.Product;
 import ru.geekbrains.persist.ProductRepository;
-import ru.geekbrains.persist.User;
-import ru.geekbrains.persist.UserRepository;
 
 @Controller
 @RequestMapping("/product")
@@ -38,7 +36,6 @@ public class ProductController {
     @GetMapping("/new")
     public String newProductForm(Model model) {
         logger.info("New product page requested");
-
         model.addAttribute("product", new Product());
         return "product_form";
     }
@@ -46,18 +43,15 @@ public class ProductController {
     @GetMapping("/{id}")
     public String editProduct(@PathVariable("id") Long id, Model model) {
         logger.info("Edit product page requested");
-
-      productRepository.update(productRepository.findById(id));
+        model.addAttribute("product", productRepository.findById(id));
         return "product_form";
     }
 
 
     @PostMapping
     public String update(Product product) {
-        logger.info("Save product");
-        productRepository.insert(product);
+        logger.info("Add/Edit product");
+        productRepository.save(product);
         return "redirect:/product";
     }
-
-
 }

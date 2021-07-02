@@ -3,12 +3,11 @@ package ru.geekbrains.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import ru.geekbrains.persist.User;
 import ru.geekbrains.persist.UserRepository;
 
@@ -44,7 +43,7 @@ public class UserController {
     @GetMapping("/{id}")
     public String editUser(@PathVariable("id") Long id, Model model) {
         logger.info("Edit user page requested");
-        userRepository.update(userRepository.findById(id));
+        model.addAttribute("user", userRepository.findById(id).orElseThrow(() -> new NotFoundException("User not found")));
         return "user_form";
     }
 
@@ -52,8 +51,16 @@ public class UserController {
     @PostMapping
     public String update(User user) {
         logger.info("Save user");
-        userRepository.insert(user);
+        userRepository.save(user);
         return "redirect:/user";
+    }
+
+    @ExceptionHandler
+    public ModelAndView NotfoundExceptionHandler(NotFoundException ex) {
+        ModelAndView modelAndView = new ModelAndView("user_not_found");
+        modelAndView.addObject("message",ex.getMessage());
+        modelAndView.setStatus(HttpStatus.NOT_FOUND);
+        return modelAndView;
     }
 
 

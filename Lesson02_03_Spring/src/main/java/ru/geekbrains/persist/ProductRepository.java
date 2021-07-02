@@ -46,4 +46,12 @@ public class ProductRepository {
         productMapMap.remove(id);
     }
 
+    public void save (Product product){
+        if (product.getId() == null) {
+            insert(product);
+        } else {
+            update(product);
+        }
+    }
+
 }

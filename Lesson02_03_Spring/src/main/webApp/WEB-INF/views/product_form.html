@@ -41,7 +41,7 @@
                 <div class="form-group">
                     <label>Product</label>
                     <input type="text" th:field="*{productName}" class="form-control" id="product" name="productName" placeholder="Enter product">
-                    <p class="text-danger" th:if="${#fields.hasErrors('product')}" th:errors="*{productName}"></p>
+                    <p class="text-danger" th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}"></p>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
@@ -62,3 +62,4 @@
         crossorigin="anonymous"></script>
 
 </body>
+</html>
