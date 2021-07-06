@@ -12,6 +12,8 @@ public class App {
         productDAO.saveOrUpdate(product);
         Product findProduct=productDAO.findById(1L);
         System.out.println(findProduct);
+
+        productDAO.entityManager.close();
     }
 
 
