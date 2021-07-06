@@ -13,7 +13,7 @@ public class ProductDAO {
 
     public void saveOrUpdate(Product product) {
         entityManager.getTransaction().begin();
-        entityManager.persist(product);
+        entityManager.merge(product);
         entityManager.getTransaction().commit();
     }
 
