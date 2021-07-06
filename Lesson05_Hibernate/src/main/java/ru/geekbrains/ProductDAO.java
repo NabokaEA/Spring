@@ -13,7 +13,11 @@ public class ProductDAO {
 
     public void saveOrUpdate(Product product) {
         entityManager.getTransaction().begin();
-        entityManager.merge(product);
+        if (findById()=null){
+            entityManager.persist(product);
+        }else {
+            entityManager.merge(product);
+        }
         entityManager.getTransaction().commit();
     }
 
@@ -28,6 +32,10 @@ public class ProductDAO {
     }
 
     public void deleteById(Long id) {
+        entityManager.getTransaction().begin();
+        Product product=entityManager.find(Product.class, id);
+        entityManager.remove(product);
+        entityManager.getTransaction().commit();
 
     }
 
