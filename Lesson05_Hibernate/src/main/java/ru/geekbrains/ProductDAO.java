@@ -33,7 +33,7 @@ public class ProductDAO {
 
     public void deleteById(Long id) {
         entityManager.getTransaction().begin();
-        Product product=entityManager.find(Product.class, id);
+        Product product=entityManager.getReference(Product.class, id);
         entityManager.remove(product);
         entityManager.getTransaction().commit();
 
