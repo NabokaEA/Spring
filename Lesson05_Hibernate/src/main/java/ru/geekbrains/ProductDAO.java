@@ -21,11 +21,12 @@ public class ProductDAO {
         Product product = entityManager.find(Product.class, id);
         return product;
     }
-/*
-    public List<Product> findAll() {
 
+    public List<Product> findAll() {
+        List<Product> resultList = entityManager.createQuery("select * from Product, Product.class").getResultList();
+        return resultList;
     }
-*/
+
     public void deleteById(Long id) {
 
     }
