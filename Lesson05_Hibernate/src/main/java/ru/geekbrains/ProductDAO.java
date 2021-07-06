@@ -23,8 +23,7 @@ public class ProductDAO {
     }
 
     public List<Product> findAll() {
-        List<Product> resultList = entityManager.createQuery("select u from Product u, Product")
-                .getResultList();
+        List<Product> resultList = entityManager.createQuery("select u from Product u", Product.class).getResultList();
         return resultList;
     }
 
