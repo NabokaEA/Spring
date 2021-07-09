@@ -22,6 +22,7 @@
         <module>Lesson02_03_Spring</module>
         <module>Lesson04_spring_boot</module>
         <module>Lesson05_Hibernate</module>
+        <module>Lesson06_Hibernate</module>
     </modules>
 
 </project>
