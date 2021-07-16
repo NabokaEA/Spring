@@ -1,4 +1,4 @@
-package ru.geekbrais.entity;
+package ru.gb.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -20,7 +20,6 @@ public class Product {
 
     @OneToMany(mappedBy = "product")
     private List<LineItem> lineItems;
-
 
     public Product() {
     }

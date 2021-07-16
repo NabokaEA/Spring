@@ -18,11 +18,12 @@
     </properties>
 
     <modules>
-        <module>Lesson01_EE_API</module>
-        <module>Lesson02_03_Spring</module>
+       <module>Lesson01_EE_API</module>
+       <module>Lesson02_03_Spring</module>
         <module>Lesson04_spring_boot</module>
-        <module>Lesson05_Hibernate</module>
+       <module>Lesson05_Hibernate</module>
         <module>Lesson06_Hibernate</module>
+        <module>Lesson07_SpringData</module>
     </modules>
 
 </project>
