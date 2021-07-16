@@ -19,7 +19,7 @@
             <map />
           </option>
           <option name="resolveToWorkspace" value="false" />
-          <option name="workingDirPath" value="$PROJECT_DIR$/Lesson04_spring_boot" />
+          <option name="workingDirPath" value="$PROJECT_DIR$/Lesson07_SpringData" />
         </MavenRunnerParameters>
       </option>
     </MavenSettings>
